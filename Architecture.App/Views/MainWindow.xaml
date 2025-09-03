@@ -7,13 +7,14 @@
         xmlns:viewmodel="clr-namespace:Architecture.App.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="600" 
+        Height="720" 
         Width="900" 
         WindowStartupLocation="CenterScreen">
 
     <StackPanel Margin="10">       
         <ListBox             
             ItemsSource="{Binding Maps}"
+            SelectedItem="{Binding CurrentMap}"
             Background="{StaticResource MediumBaseBrush}"
             MaxWidth="1110">
 
@@ -33,7 +34,7 @@
         <StackPanel>
             <TextBox Text="{Binding NewMapName, UpdateSourceTrigger=PropertyChanged}" />
             <Button Content="Add Game Location" Command="{Binding AddMapCommand}" Margin="0,5,0,5"/>
-
+            <TextBlock Text="{Binding CurrentMap.Name}" FontSize="{StaticResource Regular}" Padding="2" Margin="10"/>
         </StackPanel>
     </StackPanel>    
 </Window>
