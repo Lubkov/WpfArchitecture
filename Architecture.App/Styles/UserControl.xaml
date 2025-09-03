@@ -9,7 +9,7 @@
                 MaxWidth="210"
                 Margin="5,5,5,5"
                 Background="{StaticResource LightBaseBrush}"
-                Padding="5"
+                Padding="4"
                 CornerRadius="6"
                 Cursor="Hand">
 
@@ -17,9 +17,12 @@
                     <Image Name="img" Source="{Binding Picture}"/>
                     <TextBlock
                         Name="txt"
-                        Margin="5"
+                        Margin="5,2,5,2"
                         VerticalAlignment="Center"
+                        FontFamily="{StaticResource BaseFont}"
+                        FontSize="{StaticResource Regular}"
                         FontWeight="Bold"
+                        FontStretch="UltraExpanded"
                         Foreground="{StaticResource LightBrush}"
                         Style="{StaticResource BaseText}"
                         Text="{Binding Name}"

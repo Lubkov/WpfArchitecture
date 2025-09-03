@@ -19,6 +19,9 @@
     
 
     <SolidColorBrush x:Key="MapBaseBrush" Color="#060606" />
-    
-    
+
+
+    <SolidColorBrush x:Key="ScrollBarBrusk" Color="#0F0F0F" />
+
+
 </ResourceDictionary>

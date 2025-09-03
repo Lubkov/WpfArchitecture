@@ -3,6 +3,8 @@ using Architecture.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Architecture.App.ViewModels
 {
@@ -16,13 +18,16 @@ namespace Architecture.App.ViewModels
         private MapModel? _currentMap;
 
         [ObservableProperty]
+        private bool _isMapSelectionPanelVisible;
+
+        [ObservableProperty]
         private string _newMapName = string.Empty;
 
         public MainViewModel(IMapService mapService)
         {
             _mapService = mapService;
 
-            _ = LoadMaps();
+            _ = LoadMaps();        
         }
 
         private async Task LoadMaps()
@@ -42,6 +47,19 @@ namespace Architecture.App.ViewModels
                 await LoadMaps(); 
                 NewMapName = string.Empty;
             }
+        }
+
+        [RelayCommand]
+        private void ToggleMapSelectionPanel()
+        {
+            IsMapSelectionPanelVisible = !IsMapSelectionPanelVisible;
+        }
+
+        [RelayCommand]
+        private void ItemSelected(MapModel? map)
+        {         
+            IsMapSelectionPanelVisible = false;
+            MessageBox.Show($"Selected map: #{map?.Id} {map?.Name}");
         }
     }
 }
